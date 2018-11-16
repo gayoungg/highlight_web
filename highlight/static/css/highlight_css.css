@@ -14,7 +14,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Catamaran';
+  font-family: 'Lato';
   font-weight: 800 !important;
 }
 section {
@@ -23,7 +23,7 @@ section {
 
 
 section h2.section-heading {
-  font-size: 50px;
+  font-size: 40px;
   margin-top: 0;
   margin-bottom: 60px;
 }
@@ -121,7 +121,7 @@ header.extract {
 header.masthead .masthead-content {
   z-index: 1;
   position: relative;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 header.masthead .masthead-content .masthead-heading {
@@ -140,7 +140,7 @@ header.masthead .masthead-content .masthead-subheading {
   }
   header.masthead .masthead-content .masthead-heading {
     text-shadow: 0 1.5px 0 rgba(0, 0, 0, .75);
-    font-size: 70px;
+    font-size: 55px;
   }
   header.masthead .masthead-content .masthead-subheading {
     font-size: 4rem;
@@ -196,4 +196,31 @@ header.masthead .masthead-content .masthead-subheading {
 .btn-secondary:focus {
   -webkit-box-shadow: 0 0 0 0.2rem rgba(255, 106, 0, 0.5);
   box-shadow: 0 0 0 0.2rem rgba(255, 106, 0, 0.5);
+}
+
+/*라벨은 원하는대로 커스텀하고*/
+.fileRegiBtn label {
+  display: inline-block; 
+  padding: .5em .75em; 
+  color: #ffffff; 
+  font-size: inherit; 
+  line-height: normal; 
+  vertical-align: middle; 
+  background-color: #ee0979; 
+  cursor: pointer; 
+  border: 1px solid #ebebeb; 
+  border-bottom-color: #e2e2e2; 
+  border-radius: .25em;
+}
+
+/*파일선택시 선택된 파일명이 붙는것을 가려준다*/
+.fileRegiBtn input[type="file"]{
+  position: absolute; 
+  width: 1px; 
+  height: 1px; 
+  padding: 0; 
+  margin: -1px; 
+  overflow: hidden; 
+  clip:rect(0,0,0,0); 
+  border: 0;
 }
