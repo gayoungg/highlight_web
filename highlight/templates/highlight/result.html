@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -20,10 +19,9 @@
 
     <!-- Custom styles for this template -->
     <link href="../../static/css/highlight_css.css" rel="stylesheet">
-
 </head>
-<body>
 
+<body>
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
     <div class="container">
@@ -46,19 +44,21 @@
 </nav>
 
 <section class="extract text-center text-black">
-
+    <!--현재 테스트를 위해 파일을 입력받으면 재생하는식으로 되어있음-->
     <div class="container col-sm-8">
-         <div id="wrapper">
+        <div id="wrapper">
             <div id="fileWrapper" class="file_wrapper">
                 <div id="info">
                     HTML5 Audio API showcase | An Audio Viusalizer
                 </div>
                 <input type="file" id="uploadedFile"></input>
             </div>
+            <!--노래 시각화부분 javascript로 구현-->
             <div id="visualizer_wrapper">
                 <canvas id='canvas' width="800" height="350"></canvas>
             </div>
-             <audio src="assets/sample.mp3" id="audio" controls>audio element not supported</audio>
+            <!--오디오 플레이어와 노래는 현재 연결되어있지 않음-->
+            <audio src="" id="audio" controls>audio element not supported</audio>
         </div>
     </div>
 </section>
@@ -78,5 +78,4 @@
 <script src="../../static/vendor/bootstrap/js/audio_visualizer.js"></script>
 
 </body>
-
 </html>

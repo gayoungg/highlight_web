@@ -15,20 +15,19 @@
     <!-- Custom fonts for this template -->
     <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i"
-    rel="stylesheet">
+          rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="../../static/css/highlight_css.css" rel="stylesheet">
-
 </head>
-<body>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="../../index/">H2Light</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
-            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="../../index/">H2Light</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -50,7 +49,8 @@
     </div>
     <!--파일 읽어오는거 버튼과 text로하고 하단 javascript로 구현-->
     <div class="form-group" style="margin: 8px 0 8px;">
-        <input id="fileName" class="form-control" value="choose file..." disabled="disabled" style="width:70%; display: inline;">
+        <input id="fileName" class="form-control" value="choose file..." disabled="disabled"
+               style="width:70%; display: inline;">
         <div class="fileRegiBtn">
             <label for="myFileUp">Upload</label>
             <input type="file" id="myFileUp">
@@ -80,16 +80,15 @@
         if (input.files && input.files[0]) {
             var reader = new FileReader();
             reader.onload = function (e) {
-                    $('#fileName').val(input.files[0].name);    //파일선택 form으로 파일명이 들어온다
-                }
-                reader.readAsDataURL(input.files[0]);
+                $('#fileName').val(input.files[0].name);    //파일선택 form으로 파일명이 들어온다
             }
+            reader.readAsDataURL(input.files[0]);
         }
+    }
 
-        $("#myFileUp").change(function(){
-            readURL(this);
-        });
-    </script>
-
+    $("#myFileUp").change(function () {
+        readURL(this);
+    });
+</script>
 </body>
 </html>
