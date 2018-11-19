@@ -19,9 +19,10 @@
 
     <!-- Custom styles for this template -->
     <link href="../../static/css/highlight_css.css" rel="stylesheet">
-</head>
 
+</head>
 <body>
+
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
     <div class="container">
@@ -33,7 +34,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav text-uppercase ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link js-scroll-trigger">Extract</a>
+                    <a class="nav-link js-scroll-trigger" href="../extract/">Extract</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="../example/">Example</a>
@@ -44,17 +45,24 @@
 </nav>
 
 <section class="extract text-center text-black">
-    <div class="container">
-        <h2 class="section-heading">Let's extract the highlight</h2>
+    <h1>Extracting highlight<br><br></h1>
+    <div class="container" style="width:73%">
+        <ul class="loading_ul bigger highlight-active">
+            <li class="loading_li"></li>
+            <li class="loading_li"></li>
+            <!-- 활성화중인 상태-->
+            <li class="loading_li active"></li>
+            <li class="loading_li"></li>
+        </ul>
     </div>
-    <div class="form-group" style="margin: 8px 0 8px;">
-            <input type="file" id="myFileUp">
-    </div>
-    <div class="container col-sm-8">
-        <a href="result.html" class="btn btn-primary btn-xl rounded-pill mt-5">EXTRACT</a>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-2">첫번째단계</div>
+        <div class="col-md-3">두번째단계</div>
+        <div class="col-md-3">세번째단계</div>
+        <div class="col-md-2">네번째단계</div>
     </div>
 </section>
-
 
 <!-- Footer -->
 <footer class="py-5 bg-black">
@@ -67,5 +75,6 @@
 <!-- Bootstrap core JavaScript -->
 <script src="../../static/vendor/jquery/jquery.min.js"></script>
 <script src="../../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
