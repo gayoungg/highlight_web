@@ -44,22 +44,16 @@
 </nav>
 
 <section class="extract text-center text-black">
+    <h1>Highlight result<br><br></h1>
     <!--현재 테스트를 위해 파일을 입력받으면 재생하는식으로 되어있음-->
-    <div class="container col-sm-8">
-        <div id="wrapper">
-            <div id="fileWrapper" class="file_wrapper">
-                <div id="info">
-                    HTML5 Audio API showcase | An Audio Viusalizer
-                </div>
-                <input type="file" id="uploadedFile"></input>
-            </div>
-            <!--노래 시각화부분 javascript로 구현-->
-            <div id="visualizer_wrapper">
-                <canvas id='canvas' width="800" height="350"></canvas>
-            </div>
-            <!--오디오 플레이어와 노래는 현재 연결되어있지 않음-->
-            <audio src="" id="audio" controls>audio element not supported</audio>
+    <div id="content">
+        <div class="form-group" style="margin: 8px 0 8px;">
+            <input type="file" id="thefile" accept="audio/*"/>
         </div>
+        <div class="container">
+            <canvas id="canvas"></canvas>
+        </div>
+        <audio id="audio" controls></audio>
     </div>
 </section>
 

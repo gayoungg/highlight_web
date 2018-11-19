@@ -47,16 +47,9 @@
     <div class="container">
         <h2 class="section-heading">Let's extract the highlight</h2>
     </div>
-    <!--파일 읽어오는거 버튼과 text로하고 하단 javascript로 구현-->
     <div class="form-group" style="margin: 8px 0 8px;">
-        <input id="fileName" class="form-control" value="choose file..." disabled="disabled"
-               style="width:70%; display: inline;">
-        <div class="fileRegiBtn">
-            <label for="myFileUp">Upload</label>
             <input type="file" id="myFileUp">
-        </div>
     </div>
-
     <div class="container col-sm-8">
         <a href="result.html" class="btn btn-primary btn-xl rounded-pill mt-5">EXTRACT</a>
     </div>
@@ -74,21 +67,5 @@
 <!-- Bootstrap core JavaScript -->
 <script src="../../static/vendor/jquery/jquery.min.js"></script>
 <script src="../../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<script type="text/javascript">
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function (e) {
-                $('#fileName').val(input.files[0].name);    //파일선택 form으로 파일명이 들어온다
-            }
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-
-    $("#myFileUp").change(function () {
-        readURL(this);
-    });
-</script>
 </body>
 </html>
