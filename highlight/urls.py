@@ -6,4 +6,5 @@ urlpatterns=[
     path('extract/', views.extract, name='extract'),
     path('result/', views.result, name='result'),
     path('example/', views.example, name='example'),
+    path('loading/', views.loading, name='loading'),
 ]

@@ -9,3 +9,5 @@ def result(request):
     return render(request, 'highlight/result.html', {})
 def example(request):
     return render(request, 'highlight/example.html', {})
+def loading(request):
+    return render(request, 'highlight/loading.html', {})
