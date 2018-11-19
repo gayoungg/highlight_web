@@ -1,11 +1,5 @@
-window.onload = function() {
-
-  var file = document.getElementById("thefile");
-  var audio = document.getElementById("audio");
-
-  file.onchange = function() {
-    var files = this.files;
-    audio.src = URL.createObjectURL(files[0]);
+window.onload = function () {
+    var audio = document.getElementById("audio");
     audio.load();
     audio.play();
     var context = new AudioContext();
@@ -35,30 +29,29 @@ window.onload = function() {
     var x = 0;
 
     function renderFrame() {
-      requestAnimationFrame(renderFrame);
+        requestAnimationFrame(renderFrame);
 
-      x = 0;
+        x = 0;
 
-      analyser.getByteFrequencyData(dataArray);
+        analyser.getByteFrequencyData(dataArray);
 
-      ctx.fillStyle = "#000";
-      ctx.fillRect(0, 0, WIDTH, HEIGHT);
+        ctx.fillStyle = "#000";
+        ctx.fillRect(0, 0, WIDTH, HEIGHT);
 
-      for (var i = 0; i < bufferLength; i++) {
-        barHeight = dataArray[i];
+        for (var i = 0; i < bufferLength; i++) {
+            barHeight = dataArray[i];
 
-        var r = barHeight + (25 * (i/bufferLength));
-        var g = 250 * (i/bufferLength);
-        var b = 50;
+            var r = barHeight + (25 * (i / bufferLength));
+            var g = 250 * (i / bufferLength);
+            var b = 50;
 
-        ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
-        ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
+            ctx.fillStyle = "rgb(" + r + "," + g + "," + b + ")";
+            ctx.fillRect(x, HEIGHT - barHeight, barWidth, barHeight);
 
-        x += barWidth + 1;
-      }
+            x += barWidth + 1;
+        }
     }
 
     audio.play();
     renderFrame();
-  };
 };

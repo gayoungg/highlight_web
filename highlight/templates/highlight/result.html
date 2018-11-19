@@ -45,18 +45,17 @@
 
 <section class="extract text-center text-black">
     <h1>Highlight result<br><br></h1>
-    <!--현재 테스트를 위해 파일을 입력받으면 재생하는식으로 되어있음-->
     <div id="content">
         <div class="form-group" style="margin: 8px 0 8px;">
-            <input type="file" id="thefile" accept="audio/*"/>
         </div>
+        <!--audio visualizer-->
         <div class="container">
             <canvas id="canvas"></canvas>
         </div>
-        <audio id="audio" controls></audio>
+        <!--하이라이트 오디오 재생-->
+        <audio src="../../static/output.wav" id="audio" controls></audio>
     </div>
 </section>
-
 
 <!-- Footer -->
 <footer class="py-5 bg-black">
