@@ -1,9 +1,8 @@
 
 import numpy as np
 import librosa
-import IPython.display
 import glob
-from ssm import ssm
+from highlight.extractor.ssm import ssm
 from openpyxl import Workbook
 
 class audio_thumb_cf:
