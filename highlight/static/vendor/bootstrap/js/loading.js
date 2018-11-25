@@ -17,7 +17,3 @@ window.onload = function () {
         location.href = "../result/";
     }, 10000);
 }
-
-function goPage() {
-    location.href = "../result/";
-}
