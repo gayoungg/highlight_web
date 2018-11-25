@@ -1,4 +1,3 @@
-
 import numpy as np
 import librosa
 import glob
@@ -31,7 +30,6 @@ class audio_thumb_cf:
 #        self.thumb_frame = q_max
         print("highlight with length " + str(round(self.frame_to_time(L), 2)) + " starts at time: " + str(round(self.frame_to_time(q_max), 2)) + "s")
 
-
     def thumb_time(self, time):
         L = self.time_to_frame(time)
         q_max = self.score_max(L)
@@ -56,26 +54,19 @@ class audio_thumb_cf:
             IPython.display.Audio(data = self.y[frame:], rate = self.sr)
 
     '''
+def all():
+    fs = sorted(glob.glob('../../music/input.mp3'))
+    wb = Workbook()
+    ws = wb.active
 
-fs=sorted(glob.glob('./input/*.mp3'))
-wb=Workbook()
-ws=wb.active
-
-for f in fs:
-    # read and split to chunk
-    name = f.split('/')[-1][:-4]
-    print(name, 'processing...')
-    at=audio_thumb_cf(f)
-    index=at.thumb_time(30)
-    highlight=[index,index+30]
-    #print(highlight[0], highlight[1])
-    #at.display()
-    print("Saving highlight...")
-    print(highlight[0], " ", highlight[1])
-    librosa.output.write_wav('./output/{}.wav'.format(name+"new"), at.y[highlight[0]*22050:highlight[1]*22050], 22050)
-    ws.append([name, highlight[0], highlight[1]])
-    wb.save('output.xlsx')
-
-
-
-
+    for f in fs:
+        name = f.split('/')[-1][:-4]
+        print(name, 'processing...')
+        at=audio_thumb_cf(f)
+        index=at.thumb_time(30)
+        highlight=[index, index+30]
+        print("Saving highlight...")
+        print(highlight[0], " ", highlight[1])
+        librosa.output.write_wav('./output/{}.wav'.format(name+"new"), at.y[highlight[0]*22050:highlight[1]*22050], 22050)
+        ws.append([name, highlight[0], highlight[1]])
+        wb.save('output.xlsx')
