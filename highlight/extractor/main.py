@@ -1,5 +1,5 @@
-from model import MusicHighlighter
-from lib import *
+from .model import MusicHighlighter
+from .lib import *
 import tensorflow as tf
 import numpy as np
 import os

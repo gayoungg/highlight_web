@@ -1,6 +1,9 @@
+from django.conf import settings
 from django.shortcuts import render
+from django.http import HttpResponse
 from .models import ExtractedMusicList
 from .forms import UploadForm
+import os
 
 
 def index(request):
@@ -23,12 +26,18 @@ def extract(request):
 def result(request):
     return render(request, 'highlight/result.html', {})
 
+def resultDetail(request, pk):
+    highlight = ExtractedMusicList.objects.get(pk=pk)
+    return render(request, 'highlight/result.html',
+                  {
+                      'highlight':highlight
+                  })
 
 def example(request):
     music_list = ExtractedMusicList.objects.all()
-    if len(music_list) > 5:
-        music_list = music_list[len(music_list)-5:len(music_list)]
-        music_list.reverse()
+    music_list = music_list[0:len(music_list)]
+
+    music_list.reverse()
     return render(request, 'highlight/example.html', {
         'music_list': music_list
     })
