@@ -26,8 +26,9 @@ def result(request):
 
 def example(request):
     music_list = ExtractedMusicList.objects.all()
-    music_list = music_list[len(music_list)-5:len(music_list)]
-    music_list.reverse()
+    if len(music_list) > 5:
+        music_list = music_list[len(music_list)-5:len(music_list)]
+        music_list.reverse()
     return render(request, 'highlight/example.html', {
         'music_list': music_list
     })
