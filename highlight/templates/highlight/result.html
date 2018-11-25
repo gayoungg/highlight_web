@@ -53,7 +53,11 @@
             <canvas id="canvas"></canvas>
         </div>
         <!--하이라이트 오디오 재생-->
+        {%  if highlight  %}
         <audio src="../../../media/{{ highlight.highlightFile.name }}" id="audio" controls></audio>
+        {%  else %}
+            <audio src="../../../media/music/{{ highlight_file }}" id="audio" controls></audio>
+        {%  endif %}
     </div>
 </section>
 

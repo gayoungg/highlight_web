@@ -1,3 +1,4 @@
+# -*- coding:utf-8 -*-
 from .model import MusicHighlighter
 from .lib import *
 import tensorflow as tf
@@ -5,7 +6,7 @@ import numpy as np
 import os
 os.environ["CUDA_VISIBLE_DEVICES"] = ''
 
-def extract(fs, length=30, save_score=True, save_thumbnail=True, save_wav=True):
+def extraction(fs, length=30, save_score=True, save_thumbnail=True, save_wav=True):
     with tf.Session() as sess:
         model = MusicHighlighter()
         sess.run(tf.global_variables_initializer())
@@ -40,8 +41,11 @@ def extract(fs, length=30, save_score=True, save_thumbnail=True, save_wav=True):
                 np.save('{}_highlight.npy'.format(name), highlight)
 
             if save_wav:
-                librosa.output.write_wav('{}_audio.wav'.format(name), audio[highlight[0]*22050:highlight[1]*22050], 22050)
+                librosa.output.write_wav('{}_output.wav'.format(name), audio[highlight[0]*22050:highlight[1]*22050],
+                                         22050)
 
+"""
 if __name__ == '__main__':
-    fs = ['YOUR MP3 FILE NAME 1', 'YOUR MP3 FILE NAME 2'] # list
+    fs = ['YOUR MP3 FILE NAME 1', 'YOUR MP3 FILE NAME 2']
     extract(fs, length=30, save_score=True, save_thumbnail=True, save_wav=True)
+"""

@@ -59,7 +59,7 @@
             </thead>
             {% for music in music_list %}
                 <tr>
-                    <td><a href={% url 'resultDetail' pk=music.id %}>{{ music.title }}</a></td>
+                    <td><a href={% url 'result_detail' pk=music.id %}>{{ music.title }}</a></td>
                     <td>{{ music.musician }}</td>
                 </tr>
             {% endfor %}

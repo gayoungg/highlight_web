@@ -5,8 +5,7 @@ urlpatterns=[
     path('', views.index, name='index'),
     path('extract/', views.extract, name='extract'),
     path('result/', views.result, name='result'),
-    #example에서 result페이지로 넘어갈때 페이지 인자
-    path('result/<int:pk>', views.resultDetail, name='resultDetail'),
+    path('result/<int:pk>', views.result_detail, name='result_detail'),
     path('example/', views.example, name='example'),
     path('loading/', views.loading, name='loading'),
 ]
