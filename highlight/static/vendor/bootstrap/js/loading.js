@@ -10,11 +10,11 @@ window.onload = function () {
         step1.classList.remove('active');
         step2.classList.add('active');
         location.href = "../result/";
-    }, 25000);
+    }, 22000);
 
     setTimeout(function () {
         step2.classList.remove('active');
         step3.classList.add('active');
-    }, 35000);
+    }, 30000);
 
 }
