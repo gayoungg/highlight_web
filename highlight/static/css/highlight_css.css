@@ -200,76 +200,75 @@ header.masthead .masthead-content .masthead-subheading {
 
 /*result 페이지*/
 #canvas {
-  left: 0;
-  top: 0;
-  width: 50%;
-  height: 100%;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
 }
-
 
 /* loading 추가내용 */
 .loading_ul {
-  align-content: center;
-  align-items: center;
-  counter-reset: stepCount;
-  display: flex;
-  justify-content: space-around;
-  margin: 10vh auto 20vh; /* for codepen */
+    align-content: center;
+    align-items: center;
+    counter-reset: stepCount;
+    display: flex;
+    justify-content: space-around;
+    margin: 10vh auto 20vh; /* for codepen */
 }
 
 .loading_li {
-  background: #2ECC71;
-  color: white;
-  content: ' ';
-  display: table-cell;
-  flex-grow: 1;
-  height: .3em;
-  line-height: 1em;
-  margin: 0;
-  position: relative;
-  text-align: center;
-  z-index: -1;
+    background: #2ECC71;
+    color: white;
+    content: ' ';
+    display: table-cell;
+    flex-grow: 1;
+    height: .3em;
+    line-height: 1em;
+    margin: 0;
+    position: relative;
+    text-align: center;
+    z-index: -1;
 }
 
 .loading_li::before {
-  color: white;
-  background: #2ECC71;
-  border-radius: 50%;
-  counter-increment: stepCount;
-  content: counter(stepCount);
-  height: 2em;
-  left: -2em;
-  line-height: 2em;
-  position: absolute;
-  text-align: center;
-  top: -.85em;
-  width: 2em;
+    color: white;
+    background: #2ECC71;
+    border-radius: 50%;
+    counter-increment: stepCount;
+    content: counter(stepCount);
+    height: 2em;
+    left: -2em;
+    line-height: 2em;
+    position: absolute;
+    text-align: center;
+    top: -.85em;
+    width: 2em;
 }
 
 .loading_li.active {
-  background-color: lightblue;
+    background-color: lightblue;
 }
 
 .loading_li.active ~ .loading_li {
-  background-color: lightblue;
+    background-color: lightblue;
 }
 
 .loading_li.active ~ .loading_li::before {
-  background-color: lightblue;
+    background-color: lightblue;
 }
 
 .loading_li:last-child {
-  flex-basis: 0;
-  flex-grow: 0;
-  flex-shrink: 1;
-  /* Shorthand: flex: 0 1 0; */
+    flex-basis: 0;
+    flex-grow: 0;
+    flex-shrink: 1;
+    /* Shorthand: flex: 0 1 0; */
 }
 
 .loading_ul.bigger {
-  font-size: 1.3em;
+    font-size: 1.3em;
 }
 
 .highlight-active .active::before {
-  font-size: 1.6em;
-  background: #3498DB;
+    font-size: 1.6em;
+    background: #3498DB;
 }

@@ -5,6 +5,9 @@ from .models import ExtractedMusicList, MusicStorage
 from .forms import UploadForm
 from extractor.main import extraction
 
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from django.shortcuts import render
+
 def index(request):
     return render(request, 'highlight/index.html', {})
 
@@ -43,10 +46,12 @@ def result_detail(request, pk):
 
 def example(request):
     music_list = ExtractedMusicList.objects.all()
-
     music_list.reverse()
+    paginator = Paginator(music_list, 5)  # Show 25 contacts per page
+    page = request.GET.get('page')
+    musics = paginator.get_page(page)
     return render(request, 'highlight/example.html', {
-        'music_list': music_list
+        'musics': musics
     })
 
 

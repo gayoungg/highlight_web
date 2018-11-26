@@ -1,14 +1,52 @@
-        a:link {
-            color: black;
-            text-decoration: none;
-        }
+a:link {
+    color: black;
+    text-decoration: none;
+}
 
-        a:visited {
-            color: black;
-            text-decoration: none;
-        }
+a:visited {
+    color: black;
+    text-decoration: none;
+}
 
-        a:hover {
-            color: black;
-            text-decoration: underline;
-        }
+a:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+.page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: #ee0979;
+    border-color: #ee0979;
+}
+
+.page-link {
+    position: relative;
+    display: block;
+    padding: 0.5rem 0.75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #ee0979;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+}
+
+.page-link:hover {
+    z-index: 2;
+    color: #bd0760;
+    text-decoration: none;
+    background-color: #e9ecef;
+    border-color: #dee2e6;
+}
+
+.page-link:focus {
+    z-index: 2;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(238, 9, 121, 0.5);
+}
+
+.layer{
+  position:absolute;
+  left:50%;
+  transform:translate(-50%, -50%)
+}
