@@ -4,16 +4,17 @@ var step3 = document.getElementById("step3");
 
 window.onload = function () {
     setTimeout(function () {
+        location.href = "../result/";
+    }, 500);
+    setTimeout(function () {
         step1.classList.remove('active');
         step2.classList.add('active');
-    }, 10000);
+        location.href = "../result/";
+    }, 22000);
 
     setTimeout(function () {
         step2.classList.remove('active');
         step3.classList.add('active');
-    }, 20000);
-
-        setTimeout(function () {
-        location.href = "../result/";
     }, 30000);
+
 }
