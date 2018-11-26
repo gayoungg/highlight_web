@@ -23,7 +23,16 @@ def extract(request):
 
 
 def result(request):
+    uploaded_music_list = list(MusicStorage.objects.all())
+    name = uploaded_music_list[-1].file.name
+    fname = name[6:len(name) - 4]
+    print(fname)
+    str = "C:/Users/dkswl/PycharmProjects/highlight_web/media/" + name
+    extraction(str, fname, length=30, save_score=False, save_thumbnail=False, save_wav=True)
+    filename = fname + '_output.wav'
+
     return render(request, 'highlight/result.html', {
+        'highlight_file': filename
     })
 
 
@@ -44,15 +53,4 @@ def example(request):
 
 
 def loading(request):
-    render(request, 'highlight/loading.html')
-    uploaded_music_list=list(MusicStorage.objects.all())
-    name = uploaded_music_list[-1].file.name
-    fname = name[6:len(name)-4]
-    print(fname)
-    str = "C:/Users/dkswl/PycharmProjects/highlight_web/media/" + name
-    extraction(str, fname, length=30, save_score=False, save_thumbnail=False, save_wav=True)
-    filename = fname + '_output.wav'
-
-    return render(request, 'highlight/result.html', {
-        'highlight_file': filename
-    })
+    return render(request, 'highlight/loading.html', )

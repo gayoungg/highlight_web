@@ -12,4 +12,8 @@ window.onload = function () {
         step2.classList.remove('active');
         step3.classList.add('active');
     }, 20000);
+
+        setTimeout(function () {
+        location.href = "../result/";
+    }, 30000);
 }
