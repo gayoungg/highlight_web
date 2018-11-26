@@ -1,6 +1,6 @@
 # -*- coding:utf-8 -*-
 
-from django.shortcuts import render
+from django.shortcuts import render,HttpResponseRedirect
 from .models import ExtractedMusicList, MusicStorage
 from .forms import UploadForm
 from extractor.main import extraction
@@ -14,7 +14,7 @@ def extract(request):
         form = UploadForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return render(request, '../loading',{})
+            return HttpResponseRedirect('../loading')
     else:
         form = UploadForm()
         return render(request, 'highlight/extract.html', {
@@ -44,6 +44,7 @@ def example(request):
 
 
 def loading(request):
+    render(request, 'highlight/loading.html')
     uploaded_music_list=list(MusicStorage.objects.all())
     name = uploaded_music_list[-1].file.name
     fname = name[6:len(name)-4]
