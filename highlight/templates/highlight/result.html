@@ -55,8 +55,10 @@
         <!--하이라이트 오디오 재생-->
         {%  if highlight  %}
         <audio src="../../../media/{{ highlight.highlightFile.name }}" id="audio" controls></audio>
-        {%  else %}
-            <audio src="../../../media/music/{{ highlight_file }}" id="audio" controls></audio>
+        {%  elif highlight_file %}
+            <audio src="../../../media/{{ highlight_file }}" id="audio" controls></audio>
+        {% else %}
+            <audio> </audio>
         {%  endif %}
     </div>
 </section>
