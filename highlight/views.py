@@ -1,9 +1,13 @@
 # -*- coding:utf-8 -*-
 
-from django.shortcuts import render,HttpResponseRedirect
+from django.shortcuts import render, HttpResponseRedirect
 from .models import ExtractedMusicList, MusicStorage
 from .forms import UploadForm
 from extractor.main import extraction
+
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from django.shortcuts import render
+
 
 def index(request):
     return render(request, 'highlight/index.html', {})
@@ -18,7 +22,7 @@ def extract(request):
     else:
         form = UploadForm()
         return render(request, 'highlight/extract.html', {
-           'form': form
+            'form': form
         })
 
 
@@ -27,8 +31,8 @@ def result(request):
     name = uploaded_music_list[-1].file.name
     filename = name[6:len(name) - 4]
     str = "C:/Users/dkswl/PycharmProjects/highlight_web/media/" + name
-    extraction(str,filename, length=30, save_score=False, save_thumbnail=False, save_wav=True)
-    filename+="_output.wav"
+    extraction(str, filename, length=30, save_score=False, save_thumbnail=False, save_wav=True)
+    filename += "_output.wav"
     return render(request, 'highlight/result.html', {
         'highlight_file': filename
     })
@@ -41,12 +45,15 @@ def result_detail(request, pk):
                       'highlight': highlight
                   })
 
+
 def example(request):
     music_list = ExtractedMusicList.objects.all()
-
     music_list.reverse()
+    paginator = Paginator(music_list, 5)  # Show 5 contacts per page
+    page = request.GET.get('page')
+    musics = paginator.get_page(page)
     return render(request, 'highlight/example.html', {
-        'music_list': music_list
+        'musics': musics
     })
 
 

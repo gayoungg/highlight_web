@@ -10,7 +10,7 @@
     <title>H2Light</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../static/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
     <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
@@ -49,21 +49,51 @@
             <p class="text-secondary">Listen to music highlight from other users!<br><br></p>
         </div>
     </div>
-    <div class="container col-sm-8">
+    <div class="container" style="width:70%">
         <table class="table">
             <thead>
             <tr>
-                <th>제 목</th>
-                <th>가 수</th>
+                <th style="width: 70%">제 목</th>
+                <th style="width: 30%">가 수</th>
             </tr>
             </thead>
-            {% for music in music_list %}
+            {% for music in musics %}
                 <tr>
                     <td><a href={% url 'result_detail' pk=music.id %}>{{ music.title }}</a></td>
                     <td>{{ music.musician }}</td>
                 </tr>
             {% endfor %}
         </table>
+        <br><br>
+    </div>
+    <div class="layer">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                {% if musics.has_previous %}
+                    <li class="page-item"><a class="page-link" href="?page=1">First</a></li>
+                    <li class="page-item"><a class="page-link"
+                                             href="?page={{ musics.previous_page_number }}">Previous</a></li>
+                {% else %}
+                    <li class="page-item disabled"><a class="page-link">First</a></li>
+                    <li class="page-item disabled"><a class="page-link">Previous</a></li>
+                {% endif %}
+                {% for i in musics.paginator.page_range %}
+                    {% if i == musics.number %}
+                        <li class="page-item active"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                    {% else %}
+                        <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                    {% endif %}
+                {% endfor %}
+                {% if musics.has_next %}
+                    <li class="page-item"><a class="page-link" href="?page={{ musics.next_page_number }}">Next</a></li>
+                    <li class="page-item"><a class="page-link" href="?page={{ musics.paginator.num_pages }}">Last
+                    </a></li>
+                {% else %}
+                    <li class="page-item disabled"><a class="page-link">Next</a></li>
+                    <li class="page-item disabled"><a class="page-link">Last</a></li>
+                {% endif %}
+            </ul>
+        </nav>
     </div>
 </section>
 
