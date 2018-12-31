@@ -5,7 +5,7 @@ var step3 = document.getElementById("step3");
 window.onload = function () {
     setTimeout(function () {
         location.href = "../result/";
-    }, 500);
+    }, 1000);
     setTimeout(function () {
         step1.classList.remove('active');
         step2.classList.add('active');
@@ -15,6 +15,6 @@ window.onload = function () {
     setTimeout(function () {
         step2.classList.remove('active');
         step3.classList.add('active');
-    }, 30000);
+    }, 35000);
 
 }
