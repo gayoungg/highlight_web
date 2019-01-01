@@ -10,7 +10,7 @@ def extraction(f, fname, length=30, save_score=True, save_thumbnail=True, save_w
     with tf.Session() as sess:
         model = MusicHighlighter()
         sess.run(tf.global_variables_initializer())
-        # model.saver.restore(sess, '/model/model')
+        model.saver.restore(sess, 'C:/Users/dkswl/PycharmProjects/highlight_web/extractor/model/model')
 
         audio, spectrogram, duration = audio_read(f)
         n_chunk, remainder = np.divmod(duration, 3)
